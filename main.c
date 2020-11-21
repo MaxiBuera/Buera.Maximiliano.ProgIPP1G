@@ -33,8 +33,8 @@ void actualizarRecuperados(char* pais, int recuperados);
 /*
 2. Crear una función que se llame invertirCadena que reciba una cadena
 de caracteres como parámetro y su responsabilidad es invertir los caracteres
-de la misma. Ejemplo si le pasamos UTN-FRA la deja como ARF-NTU*/
-
+de la misma. Ejemplo si le pasamos UTN-FRA la deja como ARF-NTU
+*/
 void invertirCadena(char* cadena);
 
 int main()
@@ -73,13 +73,15 @@ void actualizarRecuperados(char* pais, int recuperados){
 void invertirCadena(char* cadena){
 
     int i;
-    char* cadenaAux;
+    int j=0;
+    char cadenaAux[strlen(cadena)+1];
+
+    //printf("\n%s",cadena);
 
     for(i=0;i<strlen(cadena);i++){
 
-        strcat(cadenaAux,cadena);
+        printf("\n%c",cadena[i]);
     }
 
-    printf("\n %s\t%s",cadena, cadenaAux);
-
+    printf(" - %s",cadena);
 }
