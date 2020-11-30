@@ -3,11 +3,6 @@
 #include <string.h>
 #define PAISES 2
 
-/*
-3. Crear una función que se llame ordenarCaracteres que reciba una cadena de
-caracteres como parámetro y su responsabilidad es ordenarlos caracteres de manera
-ascendente dentro de la cadena. Ejemplo si le pasamos "algoritmo" la deja como "agilmoort"
-*/
 
 typedef struct{
     int id;
@@ -37,6 +32,14 @@ de la misma. Ejemplo si le pasamos UTN-FRA la deja como ARF-NTU
 */
 void invertirCadena(char* cadena);
 
+
+/*
+3. Crear una función que se llame ordenarCaracteres que reciba una cadena de
+caracteres como parámetro y su responsabilidad es ordenarlos caracteres de manera
+ascendente dentro de la cadena. Ejemplo si le pasamos "algoritmo" la deja como "agilmoort"
+*/
+void ordenarCaracteres(char* cadena);
+
 int main()
 {
 
@@ -47,13 +50,15 @@ int main()
     //2)
     invertirCadena("UTN-FRA");
 
+    //3)
+    ordenarCaracteres("algoritmo");
+
     return 0;
 }
 
 void actualizarRecuperados(char* pais, int recuperados){
 
     int i=0;
-    //int j=0;
 
     if(arrayPais != NULL && pais != NULL && recuperados >= 0){
 
@@ -74,14 +79,38 @@ void invertirCadena(char* cadena){
 
     int i;
     int j=0;
-    char cadenaAux[strlen(cadena)+1];
+    char cadenaAux[strlen(cadena)];
 
-    //printf("\n%s",cadena);
 
-    for(i=0;i<strlen(cadena);i++){
+    for(i=strlen(cadena)-1;i>=0;i--){
 
-        printf("\n%c",cadena[i]);
+        cadenaAux[j] = cadena[i];
+        j++;
     }
 
-    printf(" - %s",cadena);
+    printf(".%s\n.%s",cadenaAux,cadena);
+}
+
+void ordenarCaracteres(char* cadena){
+
+    int i;
+    char auxiliar;
+
+    printf("\n\n.%s",cadena);
+
+    if(cadena != NULL){
+
+        for(i=0;i<strlen(cadena);i++){
+            printf("\n%c",cadena[i]);
+            if(cadena[i] > cadena[i+1]){
+
+                /*auxiliar = cadena[i];
+                cadena[i] = cadena[i+1];
+                cadena[i+1] = auxiliar;
+                printf("\n %c %c %c", auxiliar, cadena[i], cadena[i+1]);*/
+            }
+        }
+    }
+
+    //printf("\n.%s-",cadena);
 }
