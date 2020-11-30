@@ -51,7 +51,10 @@ int main()
     invertirCadena("UTN-FRA");
 
     //3)
-    ordenarCaracteres("algoritmo");
+    char cadena[20] = "algoritmo";
+    ordenarCaracteres(cadena);
+    printf("\n.%s",cadena);
+    printf("\n");
 
     return 0;
 }
@@ -88,29 +91,28 @@ void invertirCadena(char* cadena){
         j++;
     }
 
-    printf(".%s\n.%s",cadenaAux,cadena);
+    printf(".%s\n.%s",cadena,cadenaAux);
 }
 
 void ordenarCaracteres(char* cadena){
 
-    int i;
+    int i,j;
+    int tam = strlen(cadena);
     char auxiliar;
 
     printf("\n\n.%s",cadena);
 
-    if(cadena != NULL){
+    for(i=0;i<tam-1;i++){
 
-        for(i=0;i<strlen(cadena);i++){
-            printf("\n%c",cadena[i]);
-            if(cadena[i] > cadena[i+1]){
+        for(j=i+1;j<tam;j++){
 
-                /*auxiliar = cadena[i];
-                cadena[i] = cadena[i+1];
-                cadena[i+1] = auxiliar;
-                printf("\n %c %c %c", auxiliar, cadena[i], cadena[i+1]);*/
+            if(cadena[i] > cadena[j]){
+
+                auxiliar = cadena[i];
+                cadena[i] = cadena[j];
+                cadena[j] = auxiliar;
             }
         }
     }
 
-    //printf("\n.%s-",cadena);
 }
